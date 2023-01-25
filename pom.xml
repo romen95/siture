@@ -58,7 +58,7 @@
 		<dependency>
 			<groupId>com.github.romen95</groupId>
 			<artifactId>bitrix24-java-apiNEW</artifactId>
-			<version>3a7b974042030504808574c1f48799630eced658</version>
+			<version>de6dd68</version>
 		</dependency>
 	</dependencies>
 
