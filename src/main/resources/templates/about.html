@@ -12,9 +12,8 @@
     <div class="container mt-5">
         <h1 th:text="${title}"/>
     </div>
-    <div th:switch="${stage}">
-        <p th:case="null"></p>
-        <p th:case="*" th:text="${stage}"/>
+    <div class="container" th:if="${stage != null}">
+        <p class="alert alert-warning alert-dismissible" th:text="${stage}"/>
     </div>
 </main>
 <footer th:insert="blocks/footer :: footer" class="container"></footer>

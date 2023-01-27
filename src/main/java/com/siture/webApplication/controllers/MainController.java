@@ -18,7 +18,7 @@ public class MainController {
     @GetMapping("/about")
     public String about(Model model){
         model.addAttribute("title", "О нас");
-        model.addAttribute("stage", GetInfo.getDealStageById(3));
+        model.addAttribute("stage", GetInfo.getDealStageByClientId(5));
         return "about";
     }
 
