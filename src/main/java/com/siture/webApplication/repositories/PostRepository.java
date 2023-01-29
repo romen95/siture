@@ -1,4 +1,4 @@
-package com.siture.webApplication.repo;
+package com.siture.webApplication.repositories;
 
 import com.siture.webApplication.models.Post;
 import org.springframework.data.repository.CrudRepository;

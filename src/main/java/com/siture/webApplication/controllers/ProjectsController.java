@@ -1,7 +1,7 @@
 package com.siture.webApplication.controllers;
 
 import com.siture.webApplication.models.Post;
-import com.siture.webApplication.repo.PostRepository;
+import com.siture.webApplication.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
