@@ -1,7 +1,9 @@
 package com.siture.webApplication.controllers;
 
-import com.siture.webApplication.models.Post;
-import com.siture.webApplication.repositories.PostRepository;
+import com.siture.webApplication.models.Project;
+import com.siture.webApplication.repositories.ProjectRepository;
+import com.siture.webApplication.services.ProjectService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,15 +16,16 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Controller
+@RequiredArgsConstructor
 public class ProjectsController {
 
     @Autowired
-    private PostRepository postRepository;
+    private ProjectRepository projectRepository;
+    private final ProjectService projectService;
 
     @GetMapping("/projects")
-    public String projectsMain(Model model) {
-        Iterable<Post> posts = postRepository.findAll();
-        model.addAttribute("posts", posts);
+    public String projectsMain(@RequestParam(name = "title", required = false) String title, Model model) {
+        model.addAttribute("projects", projectService.listProjects(title));
         return "projects";
     }
 
@@ -32,56 +35,56 @@ public class ProjectsController {
     }
 
     @PostMapping("/projects/add")
-    public String projectsFormAdd(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model) {
-        Post post = new Post(title, anons, full_text);
-        postRepository.save(post);
+    public String projectsFormAdd(@RequestParam String title, @RequestParam String description, @RequestParam Integer price, Model model) {
+        Project project = new Project(title, description, price);
+        projectRepository.save(project);
         return "redirect:/projects";
     }
 
     @GetMapping("/projects/{id}")
     public String projectsDetails(@PathVariable(value = "id") long id, Model model) {
-        if (!postRepository.existsById(id)) {
+        if (!projectRepository.existsById(id)) {
             return "redirect:/projects";
         }
 
-        Optional<Post> post = postRepository.findById(id);
-        ArrayList<Post> res = new ArrayList<>();
-        post.ifPresent(res::add);
-        model.addAttribute("post", res);
+        Optional<Project> project = projectRepository.findById(id);
+        ArrayList<Project> res = new ArrayList<>();
+        project.ifPresent(res::add);
+        model.addAttribute("project", res);
         return "projects-details";
     }
 
     @GetMapping("/projects/{id}/edit")
     public String projectsEdit(@PathVariable(value = "id") long id, Model model) {
-        if (!postRepository.existsById(id)) {
+        if (!projectRepository.existsById(id)) {
             return "redirect:/projects";
         }
 
-        Optional<Post> post = postRepository.findById(id);
-        ArrayList<Post> res = new ArrayList<>();
-        post.ifPresent(res::add);
-        model.addAttribute("post", res);
+        Optional<Project> project = projectRepository.findById(id);
+        ArrayList<Project> res = new ArrayList<>();
+        project.ifPresent(res::add);
+        model.addAttribute("project", res);
         return "projects-edit";
     }
 
     @PostMapping("/projects/{id}/edit")
-    public String projectsUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String anons, @RequestParam String full_text, Model model) {
-        Post post = postRepository.findById(id).orElseThrow();
-        post.setTitle(title);
-        post.setAnons(anons);
-        post.setFull_text(full_text);
-        postRepository.save(post);
+    public String projectsUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam Integer price, @RequestParam String description, Model model) {
+        Project project = projectRepository.findById(id).orElseThrow();
+        project.setTitle(title);
+        project.setDescription(description);
+        project.setPrice(price);
+        projectRepository.save(project);
         return "redirect:/projects";
     }
 
     @PostMapping("/projects/{id}/remove")
     public String projectsDelete(@PathVariable(value = "id") long id, Model model) {
-        if (!postRepository.existsById(id)) {
+        if (!projectRepository.existsById(id)) {
             return "redirect:/projects";
         }
 
-        Post post = postRepository.findById(id).orElseThrow();
-        postRepository.delete(post);
+        Project project = projectRepository.findById(id).orElseThrow();
+        projectRepository.delete(project);
         return "redirect:/projects";
     }
 

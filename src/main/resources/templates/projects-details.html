@@ -10,10 +10,9 @@
 <header th:insert="blocks/header :: header"></header>
 <main>
     <div class="container mt-5">
-        <div th:each="el : ${post}" class="alert alert-info mt-2">
+        <div th:each="el : ${project}" class="alert alert-info mt-2">
             <h3 th:text="${el.title}"/>
-            <p th:text="${el.full_text}"/>
-            <p><b>Просмотры:</b> <span th:text="${el.views}"/></p>
+            <p th:text="${el.description}"/>
             <a th:href="'/projects/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a>
             <form th:action="'/projects/' + ${el.id} + '/remove'" method="post">
             <button class="btn btn-warning" type="submit">Удалить</button>
