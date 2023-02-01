@@ -16,10 +16,9 @@ public class MainController {
     private ProjectRepository projectRepository;
     private final ProjectService projectService;
 
-    @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("title", "Главная страница");
-        return "home";
+    @GetMapping("/index")
+    public String index(Model model) {
+        return "index";
     }
 
     @GetMapping("/about")
