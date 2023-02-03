@@ -2,33 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>О нас</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="" th:href="@{/css/vendor/bootstrap.min.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/vendor/pe-icon-7-stroke.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/vendor/themify-icons.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/vendor/font-awesome.min.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/plugins/animate.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/plugins/aos.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/plugins/magnific-popup.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/plugins/swiper.min.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/plugins/jquery-ui.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/plugins/nice-select.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/plugins/select2.min.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/plugins/easyzoom.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/plugins/slinky.css}" />
-    <link rel="stylesheet" href="" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" href="" th:href="@{/css/vendor/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/vendor/pe-icon-7-stroke.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/vendor/themify-icons.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/vendor/font-awesome.min.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/plugins/animate.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/plugins/aos.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/plugins/magnific-popup.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/plugins/swiper.min.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/plugins/jquery-ui.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/plugins/nice-select.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/plugins/select2.min.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/plugins/easyzoom.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/plugins/slinky.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <div class="main-wrapper main-wrapper-2">
-    <header class="header-area header-responsive-padding header-height-1">
+    <header class="header-area header-responsive-padding header-height-1 header-background-color">
         <div class="header-bottom sticky-bar">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="logo">
-                            <a href="index.html"><img src="" th:src="@{/images/logo/logo.png}" alt="logo"></a>
+                            <a href="index.html"><img src="" th:src="@{/images/logo/logo-white.png}" alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-lg-6 d-none d-lg-block d-flex justify-content-center">
@@ -67,7 +67,8 @@
                                                         </ul>
                                                     </li>
                                                     <li>
-                                                        <a href="index.html"><img src="assets/images/banner/menu.png" alt=""></a>
+                                                        <a href="index.html"><img src="assets/images/banner/menu.png"
+                                                                                  alt=""></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -81,7 +82,6 @@
                                     </li>
                                     <li><a href="index.html">Блог</a>
                                     </li>
-                                    <li><a href="index.html">О нас</a></li>
                                     <li><a href="index.html">Контакты</a></li>
                                 </ul>
                             </nav>
@@ -90,7 +90,7 @@
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="header-action-wrap">
                             <div class="header-action-style header-search-1">
-                                <a class="search-toggle" href="#">
+                                <a class="search-toggle text-white" href="#">
                                     <i class="pe-7s-search s-open"></i>
                                     <i class="pe-7s-close s-close"></i>
                                 </a>
@@ -102,10 +102,16 @@
                                 </div>
                             </div>
                             <div class="header-action-style">
-                                <a title="Login Register" href="login-register.html"><i class="pe-7s-user"></i></a>
+                                <a title="Login Register" href="/login"><i class="pe-7s-user text-white"></i></a>
+                            </div>
+                            <div class="header-action-style">
+                                <form action="/logout" method="post">
+                                    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                                    <input type="submit" value="Выйти">
+                                </form>
                             </div>
                             <div class="header-action-style d-block d-lg-none">
-                                <a class="mobile-menu-active-button" href="#"><i class="pe-7s-menu"></i></a>
+                                <a class="mobile-menu-active-button text-white" href="#"><i class="pe-7s-menu"></i></a>
                             </div>
                         </div>
                     </div>
@@ -161,13 +167,14 @@
         <div class="slider-active swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1" style="" th:style="'background-image:url(' + @{/images/slider/slider-bg-1.png} + ')'">
+                    <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1"
+                         style="" th:style="'background-image:url(' + @{/images/slider/slider-bg-1.png} + ')'">
                         <div class="container">
                             <div class="row align-items-center">
-                                <div class="col-lg-6 col-md-6">
+                                <div>
                                     <div class="slider-content-1 slider-animated-1">
-                                        <h3 class="text-white animated">стиль, качество, комфорт</h3>
-                                        <h1 class="text-white animated">Дизайнерская мебель <br>на заказ</h1>
+                                        <h3 class="text-white animated">Стиль, качество, комфорт</h3>
+                                        <h1 class="text-white animated">Дизайнерская мебель на заказ</h1>
                                         <div class="slider-btn btn-hover">
                                             <a href="product-details.html" class="btn animated">
                                                 Заказать мебель<i class=" ti-arrow-right "></i>
@@ -175,38 +182,36 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="hero-slider-img-1 slider-animated-1">
-                                        <img class="animated animated-slider-img-1" src="assets/images/slider/slider-img-1.png" alt="">
-                                    </div>
-                                </div>
+                                <!--                                <div class="col-lg-6 col-md-6">-->
+                                <!--                                    <div class="hero-slider-img-1 slider-animated-1">-->
+                                <!--                                        <img class="animated animated-slider-img-1" src="assets/images/slider/slider-img-1.png" alt="">-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1" style="background-image:url(assets/images/slider/slider-bg-1.jpg)">
+                    <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1"
+                         style="" th:style="'background-image:url(' + @{/images/slider/slider-bg-2.jpg} + ')'">
                         <div class="container">
                             <div class="row align-items-center">
-                                <div class="col-lg-6 col-md-6">
+                                <div>
                                     <div class="slider-content-1 slider-animated-1">
-                                        <h3 class="animated">new arrival</h3>
-                                        <h1 class="animated">Summer <br>Collection</h1>
+                                        <h3 class="animated">Ваша идея, наше исполнение</h3>
+                                        <h1 class="animated">Изготовим мебель по дизайн-проекту</h1>
                                         <div class="slider-btn btn-hover">
                                             <a href="product-details.html" class="btn animated">
-                                                Shop Now <i class=" ti-arrow-right "></i>
+                                                Заказать мебель<i class=" ti-arrow-right "></i>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="hero-slider-img-1 slider-animated-1">
-                                        <img class="animated animated-slider-img-1" src="assets/images/slider/slider-img-1-2.png" alt="">
-                                        <div class="product-offer animated">
-                                            <h5>30% <span>Off</span></h5>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!--                                <div class="col-lg-6 col-md-6">-->
+                                <!--                                    <div class="hero-slider-img-1 slider-animated-1">-->
+                                <!--                                        <img class="animated animated-slider-img-1" src="assets/images/slider/slider-img-1.png" alt="">-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -224,9 +229,10 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                             <div class="footer-widget footer-about mb-40">
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="assets/images/logo/logo.png" alt="logo"></a>
+                                    <a href="index.html"><img src="assets/images/logo/logo-white.png" alt="logo"></a>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, cons adipi elit, sed do eiusmod tempor incididunt ut aliqua.</p>
+                                <p>Lorem ipsum dolor sit amet, cons adipi elit, sed do eiusmod tempor incididunt ut
+                                    aliqua.</p>
                                 <div class="payment-img">
                                     <a href="#"><img src="assets/images/icon-img/payment.png" alt="logo"></a>
                                 </div>
@@ -260,7 +266,7 @@
                             <div class="footer-widget footer-widget-margin-2 footer-address mb-40">
                                 <h3 class="footer-title">Get in touch</h3>
                                 <ul>
-                                    <li><span>Address: </span>Your address goes here </li>
+                                    <li><span>Address: </span>Your address goes here</li>
                                     <li><span>Telephone Enquiry:</span> (012) 345 6789</li>
                                     <li><span>Email: </span>demo@example.com</li>
                                 </ul>
@@ -277,7 +283,8 @@
         <div class="bg-gray-3">
             <div class="container">
                 <div class="footer-bottom copyright text-center bg-gray-3">
-                    <p>Copyright ©2021 All rights reserved | Made with <i class="fa fa-heart"></i> by <a href="https://hasthemes.com/"> HasThemes</a>.</p>
+                    <p>Copyright ©2021 All rights reserved | Made with <i class="fa fa-heart"></i> by <a
+                            href="https://hasthemes.com/"> HasThemes</a>.</p>
                 </div>
             </div>
         </div>
@@ -321,10 +328,12 @@
                                         <li><a title="Purple" class="purple" href="#">purple</a></li>
                                     </ul>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare tincidunt neque vel semper. Cras placerat enim sed nisl mattis eleifend.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare tincidunt
+                                    neque vel semper. Cras placerat enim sed nisl mattis eleifend.</p>
                                 <div class="product-details-action-wrap">
                                     <div class="product-quality">
-                                        <input class="cart-plus-minus-box input-text qty text" name="qtybutton" value="1">
+                                        <input class="cart-plus-minus-box input-text qty text" name="qtybutton"
+                                               value="1">
                                     </div>
                                     <div class="single-product-cart btn-hover">
                                         <a href="#">Add to cart</a>
@@ -404,7 +413,7 @@
                                 <li><a href="wishlist.html">Wishlist </a></li>
                                 <li><a href="compare.html">Compare </a></li>
                                 <li><a href="contact-us.html">Contact us </a></li>
-                                <li><a href="login-register.html">Login / Register </a></li>
+                                <li><a href="login.html">Login / Register </a></li>
                             </ul>
                         </li>
                         <li>
@@ -436,7 +445,8 @@
                     </div>
                 </div>
                 <div class="language-wrap">
-                    <a class="language-active" href="#"><img src="assets/images/icon-img/flag.png" alt=""> English <i class=" ti-angle-down "></i></a>
+                    <a class="language-active" href="#"><img src="assets/images/icon-img/flag.png" alt=""> English <i
+                            class=" ti-angle-down "></i></a>
                     <div class="language-dropdown">
                         <ul>
                             <li><a href="#"><img src="assets/images/icon-img/flag.png" alt="">English </a></li>

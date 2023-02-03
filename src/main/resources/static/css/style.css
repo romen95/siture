@@ -1065,7 +1065,7 @@ textarea {
 }
 
 .main-menu > nav > ul > li > a {
-  color: #383838;
+  color: #ffffff;
   font-weight: 500;
   line-height: 120px;
   display: inline-block;
@@ -1195,6 +1195,10 @@ textarea {
   background-color: #000000;
 }
 
+.header-background-color {
+  background-color: #000000;
+}
+
 .header-height-1 {
   min-height: 120px;
 }
@@ -1237,7 +1241,7 @@ textarea {
   width: 100%;
   z-index: 999;
   left: 0;
-  background-color: #ffffff;
+  background-color: #000000;
   -webkit-transition: all .3s ease 0s;
   -o-transition: all .3s ease 0s;
   transition: all .3s ease 0s;
@@ -2101,6 +2105,7 @@ textarea {
 }
 
 .slider-content-1 h3 {
+  width: 380px;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -2125,25 +2130,29 @@ textarea {
 }
 
 .slider-content-1 h1 {
-  font-size: 78px;
-  line-height: 90px;
+  font-size: 74px;
+  line-height: 75px;
   font-family: "Poppins", sans-serif;
   margin: 19px 0 44px;
+  max-width: 655px;
 }
+
 
 @media only screen and (min-width: 1366px) and (max-width: 1600px) {
   .slider-content-1 h1 {
-    font-size: 65px;
-    line-height: 70px;
+    font-size: 74px;
+    line-height: 75px;
     margin: 19px 0 35px;
+    max-width: 655px;
   }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1365px) {
   .slider-content-1 h1 {
-    font-size: 60px;
+    font-size: 65px;
     line-height: 70px;
     margin: 19px 0 35px;
+    max-width: 580px;
   }
 }
 
@@ -2152,14 +2161,16 @@ textarea {
     font-size: 55px;
     line-height: 60px;
     margin: 15px 0 25px;
+    max-width: 500px;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .slider-content-1 h1 {
-    font-size: 50px;
+    font-size: 60px;
     line-height: 60px;
     margin: 15px 0 25px;
+    max-width: 530px;
   }
 }
 
@@ -2167,7 +2178,8 @@ textarea {
   .slider-content-1 h1 {
     font-size: 35px;
     line-height: 40px;
-    margin: 10px 0 20px;
+    margin: 10px auto 20px;
+    max-width: 320px;
   }
 }
 

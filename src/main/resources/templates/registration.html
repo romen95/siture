@@ -186,28 +186,24 @@
                     <div class="col-lg-8 col-md-12 offset-lg-2">
                         <div class="login-register-wrapper">
                             <div class="login-register-tab-list nav">
-                                <a class="active" href="/login">
+                                <a href="/login">
                                     <h4> Войти </h4>
                                 </a>
-                                <a href="/registration">
+                                <a class="active" href="/registration">
                                     <h4> Зарегистрироваться </h4>
                                 </a>
                             </div>
                             <div class="tab-content">
-                                <div id="lg1" class="tab-pane active">
+                                <div id="lg2" class="tab-pane active">
                                     <div class="login-form-container">
                                         <div class="login-register-form">
-                                            <form action="/login" method="post">
-                                                <input type="email" name="username" placeholder="Email">
+                                            <form action="/registration" method="post">
+                                                <input type="text" name="name" placeholder="Имя">
+                                                <input type="email" name="email" placeholder="Email">
                                                 <input type="password" name="password" placeholder="Пароль">
-                                                <div class="login-toggle-btn">
-                                                    <input type="checkbox">
-                                                    <label>Remember me</label>
-                                                    <a href="#">Forgot Password?</a>
-                                                </div>
                                                 <div class="button-box btn-hover">
                                                     <input type="hidden" name="_csrf" th:value="${_csrf.token}">
-                                                    <input type="submit" value="Вход">
+                                                    <input type="submit" value="Зарегистрироваться">
                                                 </div>
                                             </form>
                                         </div>
