@@ -89,25 +89,17 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="header-action-wrap">
-                            <div class="header-action-style header-search-1">
-                                <a class="search-toggle text-white" href="#">
-                                    <i class="pe-7s-search s-open"></i>
-                                    <i class="pe-7s-close s-close"></i>
-                                </a>
-                                <div class="search-wrap-1">
-                                    <form action="#">
-                                        <input placeholder="Search products…" type="text">
-                                        <button class="button-search"><i class="pe-7s-search"></i></button>
+                            <div th:if="${user.email != null}" class="header-action-style">
+                                <a class="text-white" href="/my_account" th:text="${user.name}"/>
+                                    <form action="/logout" method="post">
+                                        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                                        <input type="submit" value="Выйти">
                                     </form>
-                                </div>
                             </div>
-                            <div class="header-action-style">
-                                <a title="Login Register" href="/login"><i class="pe-7s-user text-white"></i></a>
-                            </div>
-                            <div class="header-action-style">
-                                <form action="/logout" method="post">
+                            <div th:unless="${user.email != null}" class="header-action-style">
+                                <form action="/login" method="get">
                                     <input type="hidden" name="_csrf" th:value="${_csrf.token}">
-                                    <input type="submit" value="Выйти">
+                                    <input type="submit" value="Войти">
                                 </form>
                             </div>
                             <div class="header-action-style d-block d-lg-none">

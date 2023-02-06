@@ -21,7 +21,7 @@ public class MainController {
     private final ProjectService projectService;
     private UserService userService;
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index(Principal principal, Model model) {
         model.addAttribute("user", userService.getUserByPrincipal(principal));
         return "index";
