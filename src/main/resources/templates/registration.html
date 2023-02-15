@@ -28,7 +28,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="logo">
-                            <a href="index.html"><img src="" th:src="@{/images/logo/logo-white.png}" alt="logo"></a>
+                            <a href="/"><img src="" th:src="@{/images/logo/logo-white.png}" alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-lg-6 d-none d-lg-block d-flex justify-content-center">
@@ -161,7 +161,7 @@
                                     <div class="login-register-form">
                                         <form action="/registration" method="post">
                                             <input type="text" name="name" placeholder="Имя">
-                                            <input type="email" name="email" placeholder="Email">
+                                            <input type="tel" name="phoneNumber" placeholder="Телефон">
                                             <input type="password" name="password" placeholder="Пароль">
                                             <div class="button-box btn-hover">
                                                 <input type="hidden" name="_csrf" th:value="${_csrf.token}">

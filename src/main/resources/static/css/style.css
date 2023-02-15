@@ -1934,6 +1934,7 @@ textarea {
 }
 
 /*-------- 03. Slider style ---------*/
+
 .slider-height-1 {
   height: 770px;
 }
@@ -10965,7 +10966,6 @@ textarea {
   border-bottom: none;
   display: block;
   padding: 10px 15px;
-  text-transform: capitalize;
   font-size: 15px;
   font-weight: 500;
 }

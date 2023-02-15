@@ -1,5 +1,6 @@
 package com.siture.webApplication.controllers;
 
+import com.siture.webApplication.files.GetInfo;
 import com.siture.webApplication.models.Project;
 import com.siture.webApplication.models.User;
 import com.siture.webApplication.repositories.UserRepository;
@@ -34,15 +35,16 @@ public class UserController {
     @PostMapping("/registration")
     public String createUser(User user, Model model) {
         if (!userService.createUser(user)) {
-            model.addAttribute("errorMessage", "Пользователь с email: " + user.getEmail() + " уже существует!");
+            model.addAttribute("errorMessage", "Пользователь с email: " + user.getPhoneNumber() + " уже существует!");
             return "registration";
         }
-        return "redirect:/registration";
+        return "redirect:/login";
     }
 
     @GetMapping("/my_account")
     public String projectsDetails(Principal principal, Model model) {
         model.addAttribute("user", userService.getUserByPrincipal(principal));
+        model.addAttribute("contact", GetInfo.getContactFromPhoneNumber("89055383144"));
         return "my-account";
     }
 }

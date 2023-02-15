@@ -18,18 +18,18 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     public boolean createUser(User user) {
-        String email = user.getEmail();
-        if (userRepository.findByEmail(email) != null) return false;
+        String phoneNumber = user.getPhoneNumber();
+        if (userRepository.findByphoneNumber(phoneNumber) != null) return false;
         user.setActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.getRoles().add(Role.ROLE_USER);
-        log.info("Saving new User with email: {}", email);
+        log.info("Saving new User with phone number: {}", phoneNumber);
         userRepository.save(user);
         return true;
     }
 
     public User getUserByPrincipal(Principal principal) {
         if (principal == null) return new User();
-        return userRepository.findByEmail(principal.getName());
+        return userRepository.findByphoneNumber(principal.getName());
     }
 }

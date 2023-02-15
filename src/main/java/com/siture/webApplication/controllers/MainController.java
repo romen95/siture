@@ -31,7 +31,6 @@ public class MainController {
     public String about(Model model){
         model.addAttribute("title", GetInfo.getDealsList().get(0).getTitle());
         model.addAttribute("currency", GetInfo.getDealsList().get(0).getCurrencyId());
-        model.addAttribute("stage", GetInfo.getDealStageByClientId(5));
         return "about";
     }
 

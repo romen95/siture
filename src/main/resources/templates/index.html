@@ -28,7 +28,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="logo">
-                            <a href="index.html"><img src="" th:src="@{/images/logo/logo-white.png}" alt="logo"></a>
+                            <a href="/"><img src="" th:src="@{/images/logo/logo-white.png}" alt="logo"></a>
                         </div>
                     </div>
                     <div class="col-lg-6 d-none d-lg-block d-flex justify-content-center">
@@ -89,14 +89,14 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="header-action-wrap">
-                            <div th:if="${user.email != null}" class="header-action-style">
+                            <div th:if="${user.phoneNumber != null}" class="header-action-style">
                                 <a class="text-white" href="/my_account" th:text="${user.name}"/>
                                     <form action="/logout" method="post">
                                         <input type="hidden" name="_csrf" th:value="${_csrf.token}">
                                         <input type="submit" value="Выйти">
                                     </form>
                             </div>
-                            <div th:unless="${user.email != null}" class="header-action-style">
+                            <div th:unless="${user.phoneNumber != null}" class="header-action-style">
                                 <form action="/login" method="get">
                                     <input type="hidden" name="_csrf" th:value="${_csrf.token}">
                                     <input type="submit" value="Войти">
@@ -160,7 +160,7 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1"
-                         style="" th:style="'background-image:url(' + @{/images/slider/slider-bg-1.png} + ')'">
+                         style="" th:style="'background-image:url(' + @{/images/slider/slider-bg-1.jpg} + ')'">
                         <div class="container">
                             <div class="row align-items-center">
                                 <div>
@@ -190,8 +190,8 @@
                             <div class="row align-items-center">
                                 <div>
                                     <div class="slider-content-1 slider-animated-1">
-                                        <h3 class="animated">Ваша идея, наше исполнение</h3>
-                                        <h1 class="animated">Изготовим мебель по дизайн-проекту</h1>
+                                        <h3 class="text-white animated">Ваша идея, наше исполнение</h3>
+                                        <h1 class="text-white animated">Изготовим мебель по дизайн-проекту</h1>
                                         <div class="slider-btn btn-hover">
                                             <a href="product-details.html" class="btn animated">
                                                 Заказать мебель<i class=" ti-arrow-right "></i>
