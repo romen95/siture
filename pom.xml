@@ -64,7 +64,7 @@
 		<dependency>
 			<groupId>com.github.romen95</groupId>
 			<artifactId>bitrix24-java-apiNEW</artifactId>
-			<version>6ff7e52</version>
+			<version>4ba6567</version>
 		</dependency>
 
 		<dependency>

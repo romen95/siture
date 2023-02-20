@@ -195,17 +195,17 @@
                                                     <table class="table table-bordered">
                                                         <thead class="thead-light">
                                                             <tr>
-                                                                <th>Номер</th>
-                                                                <th>Дата</th>
+                                                                <th>Дата заказа</th>
+                                                                <th>Позиция</th>
                                                                 <th>Статус</th>
                                                                 <th>Сумма договора</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody th:if="${contact != null}">
                                                             <tr>
-                                                                <td th:text="${contact.getLastName()}"/>
-                                                                <td th:text="${contact.getName()}"/>
                                                                 <td th:text="${contact.getPhones().get(0).getValue()}"/>
+                                                                <td th:text="${contact.getName()}"/>
+                                                                <td th:text="${contact.getName()}"/>
                                                                 <td th:text="${contact.getName()}"/>
                                                             </tr>
                                                         </tbody>

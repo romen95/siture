@@ -4,26 +4,26 @@ import com.javastream.Client;
 import com.javastream.entity.Contact;
 import com.javastream.entity.ContactItem;
 import com.javastream.entity.Deal;
-import com.javastream.entity.model.Phone;
-import com.javastream.service.DealService;
-import com.javastream.utils.MultiFields;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+@Service
 @Slf4j
-public class GetInfo {
-    private final static String PREPARATION = "Подготовка документов";
-    private final static String PREPAYMENT_INVOICE = "Счет на предоплату";
-    private final static String EXECUTING = "В работе";
+public class BitrixService {
+    private final String PREPARATION = "Подготовка документов";
+    private final String PREPAYMENT_INVOICE = "Счет на предоплату";
+    private final String EXECUTING = "В работе";
 
-    public static Client client = new Client("b2j78p32fh1vknqs", "b24-n9gde9.bitrix24.ru", 1);
+    private Client client = new Client("b2j78p32fh1vknqs", "b24-n9gde9.bitrix24.ru", 1);
 
-    public static List<Deal> getDealsList() {
+    private List<Deal> getDealsList() {
         return client.dealService().getAll();
     }
 
-    public static Contact getContactFromPhoneNumber(String phoneNumber) {
+    public Contact getContactFromPhoneNumber(String phoneNumber) {
         Contact contact = null;
         List<Contact> contacts = client.contactService().getAll();
         ArrayList<Integer> ids = new ArrayList<>();
@@ -40,19 +40,35 @@ public class GetInfo {
         return contact;
     }
 
-
-
-//    public static ArrayList<Integer> getContactsIdFromDealId(Integer dealId) {
-//        List<ContactItem> contactItemsList = dealService.getContactFromDeal(dealId);
-//        ArrayList<Integer> contactsIdList = new ArrayList<>();
-//        for (ContactItem contactItemsElement : contactItemsList) {
-//            contactsIdList.add(contactItemsElement.getContactId());
+//    public ArrayList<Deal> getDealsArrayFromPhoneNumber(String phoneNumber) {
+//        List<Deal> allDeals = getDealsList();
+//        log.info("Количество сделок: {}", allDeals.size());
+//        ArrayList<Deal> resultDeals = new ArrayList<>();
+//        for (int i = 0; i < allDeals.size(); i++) {
+//            List<ContactItem> contactItems = client.dealService().getContactFromDeal(allDeals.get(i).getId());
+//            for (int j = 0; j < contactItems.size(); j++) {
+//                if (contactItems.get(j).getContactId().equals(getContactFromPhoneNumber(phoneNumber).getId())) {
+//                    resultDeals.add(allDeals.get(i));
+//                }
+//            }
 //        }
-//        return contactsIdList;
+//        log.info("Количество сделок: {}", resultDeals.size());
+//        return resultDeals;
+//    }
+
+
+
+//    private ArrayList<Integer> getContactsIdsFromDealId(Integer dealId) {
+//        List<ContactItem> contactItemsList = client.dealService().getContactFromDeal(dealId);
+//        ArrayList<Integer> contactsIdsList = new ArrayList<>();
+//        for (ContactItem contactItemsElement : contactItemsList) {
+//            contactsIdsList.add(contactItemsElement.getContactId());
+//        }
+//        return contactsIdsList;
 //    }
 //
-//    public static Integer getContactIdFromDealId(Integer id) {
-//        Integer result = dealService.getContactFromDeal(id).get(0).getContactId();
+//    public Integer getContactIdFromDealId(Integer id) {
+//        Integer result = client.dealService().getContactFromDeal(id).get(0).getContactId();
 //        return result;
 //    }
 //
