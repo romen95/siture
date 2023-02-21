@@ -5,6 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "projects")
@@ -20,12 +23,8 @@ public class Project {
     private String title;
     @Column(name = "description", columnDefinition = "text")
     private String description;
+    @Column(name = "path")
+    private String path;
     @Column(name = "price")
     private int price;
-
-    public Project(String title, String description, int price) {
-        this.title = title;
-        this.description = description;
-        this.price = price;
-    }
 }

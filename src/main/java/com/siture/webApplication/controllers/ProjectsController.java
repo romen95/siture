@@ -1,8 +1,10 @@
 package com.siture.webApplication.controllers;
 
 import com.siture.webApplication.models.Project;
+import com.siture.webApplication.models.User;
 import com.siture.webApplication.repositories.ProjectRepository;
 import com.siture.webApplication.services.ProjectService;
+import com.siture.webApplication.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,24 +14,38 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
 public class ProjectsController {
-
-    @Autowired
-    private ProjectRepository projectRepository;
     private final ProjectService projectService;
+    private final UserService userService;
 
     @GetMapping("/projects")
-    public String projects(Model model) {
+    public String projects(@RequestParam(name = "title", required = false) String title, Principal principal, Model model) {
+        model.addAttribute("user", userService.getUserByPrincipal(principal));
+        model.addAttribute("projects", projectService.listProjects(title));
         return "projects";
     }
 
+    @GetMapping("/create")
+    public String create() {
+        return "create-project";
+    }
+
+    @PostMapping("/create")
+    public String createProject(Project project, Model model) {
+        projectService.saveProject(project);
+        return "redirect:/projects";
+    }
+
 //    @GetMapping("/projects")
-//    public String projectsMain(@RequestParam(name = "title", required = false) String title, Model model) {
+//    public String projectsMain(@RequestParam(name = "title", required = false) String title, Principal principal, Model model) {
+//        User currentUser = userService.getUserByPrincipal(principal);
+//        model.addAttribute("user", currentUser);
 //        model.addAttribute("projects", projectService.listProjects(title));
 //        return "projects";
 //    }
