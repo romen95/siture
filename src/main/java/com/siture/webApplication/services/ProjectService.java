@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -28,7 +29,11 @@ public class ProjectService {
         projectRepository.deleteById(id);
     }
 
-    public Project getProjectsById(Long id) {
-        return projectRepository.findById(id).orElse(null);
+    public Optional<Project> getProjectsById(Long id) {
+        return projectRepository.findById(id);
+    }
+
+    public boolean existsById(Long id) {
+        return projectRepository.existsById(id);
     }
 }

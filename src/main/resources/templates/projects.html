@@ -179,32 +179,28 @@
                             <div id="shop-1" class="tab-pane">
                                 <div class="row">
                                     <div th:each="project : ${projects}" class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                        <div class="product-wrap mb-35">
+                                        <div class="product-wrap mb-35 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
                                             <div class="product-img img-zoom mb-25">
                                                 <a href="product-details.html">
-                                                    <img th:src="${project.}" alt="">
+                                                    <img src="" th:src="${project.path}" alt="">
                                                 </a>
                                                 <div class="product-badge badge-top badge-right badge-pink">
                                                     <span>-10%</span>
                                                 </div>
                                                 <div class="product-action-wrap">
-                                                    <button class="product-action-btn-1" title="Wishlist"><i
-                                                            class="pe-7s-like"></i></button>
-                                                    <button class="product-action-btn-1" title="Quick View"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <button class="product-action-btn-1" title="Wishlist"><i class="pe-7s-like"></i></button>
+                                                    <button class="product-action-btn-1" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                         <i class="pe-7s-look"></i>
                                                     </button>
                                                 </div>
                                                 <div class="product-action-2-wrap">
-                                                    <button class="product-action-btn-2" title="Add To Cart"><i
-                                                            class="pe-7s-cart"></i> Add to cart
-                                                    </button>
+                                                    <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
                                                 </div>
                                             </div>
                                             <div class="product-content">
-                                                <h3><a th:text="${project.title}" href="product-details.html"/></h3>
+                                                <h3><a th:text="${project.title}"/></h3>
                                                 <div class="product-price">
-                                                    <span th:text="'₽' + ${project.price + 50000}" class="old-price"/>
+                                                    <span th:text="'₽' + ${project.price + project.price * 0.1}" class="old-price"/>
                                                     <span th:text="${project.price}" class="new-price"/>
                                                 </div>
                                             </div>
@@ -227,19 +223,18 @@
                                             <div class="col-lg-4 col-sm-5">
                                                 <div class="product-list-img">
                                                     <a href="product-details.html">
-                                                        <img src="assets/images/product/product-5.png"
-                                                             alt="Product Style">
+                                                        <img src="" th:src="${project.path}" alt="Product Style">
                                                     </a>
                                                     <div class="product-list-badge badge-right badge-pink">
-                                                        <span>-20%</span>
+                                                        <span>-10%</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-8 col-sm-7">
                                                 <div class="shop-list-content">
-                                                    <h3><a th:text="${project.title}"  href="product-details.html"/></h3>
+                                                    <h3><a th:href="'/projects/' + ${project.id}" th:text="${project.title}"/></h3>
                                                     <div class="product-price">
-                                                        <span th:text="'₽' + ${project.price + 50000}" class="old-price"/>
+                                                        <span th:text="'₽' + ${project.price + project.price * 0.1}" class="old-price"/>
                                                         <span th:text="'₽' + ${project.price}" class="new-price"/>
                                                     </div>
                                                     <div class="product-list-rating">

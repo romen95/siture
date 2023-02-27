@@ -42,6 +42,19 @@ public class ProjectsController {
         return "redirect:/projects";
     }
 
+    @GetMapping("/projects/{id}")
+    public String projectsDetails(@PathVariable(value = "id") long id, Model model) {
+        if (!projectService.existsById(id)) {
+            return "redirect:/projects";
+        }
+
+        Optional<Project> project = projectService.getProjectsById(id);
+        ArrayList<Project> res = new ArrayList<>();
+        project.ifPresent(res::add);
+        model.addAttribute("project", res);
+        return "project-details";
+    }
+
 //    @GetMapping("/projects")
 //    public String projectsMain(@RequestParam(name = "title", required = false) String title, Principal principal, Model model) {
 //        User currentUser = userService.getUserByPrincipal(principal);
@@ -62,18 +75,6 @@ public class ProjectsController {
 //        return "redirect:/projects";
 //    }
 //
-//    @GetMapping("/projects/{id}")
-//    public String projectsDetails(@PathVariable(value = "id") long id, Model model) {
-//        if (!projectRepository.existsById(id)) {
-//            return "redirect:/projects";
-//        }
-//
-//        Optional<Project> project = projectRepository.findById(id);
-//        ArrayList<Project> res = new ArrayList<>();
-//        project.ifPresent(res::add);
-//        model.addAttribute("project", res);
-//        return "projects-details";
-//    }
 //
 //    @GetMapping("/projects/{id}/edit")
 //    public String projectsEdit(@PathVariable(value = "id") long id, Model model) {

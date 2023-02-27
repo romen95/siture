@@ -89,13 +89,6 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="header-action-wrap">
-                            <div th:if="${user.phoneNumber != null}" class="header-action-style">
-                                <a class="text-white" href="/my_account" th:text="${user.name}"/>
-                                <form action="/logout" method="post">
-                                    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
-                                    <input type="submit" value="Выйти">
-                                </form>
-                            </div>
                             <div class="header-action-style d-block d-lg-none">
                                 <a class="mobile-menu-active-button text-white" href="#"><i class="pe-7s-menu"></i></a>
                             </div>
@@ -147,24 +140,6 @@
                     <a class="theme-color" href="checkout.html">checkout</a>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="breadcrumb-area bg-gray-4 breadcrumb-padding-1">
-        <div class="container">
-            <div class="breadcrumb-content text-center">
-                <h2 data-aos="fade-up" data-aos-delay="200">Product Details</h2>
-                <ul data-aos="fade-up" data-aos-delay="400">
-                    <li><a href="index.html">Home</a></li>
-                    <li><i class="ti-angle-right"></i></li>
-                    <li>Product Details Tab 2</li>
-                </ul>
-            </div>
-        </div>
-        <div class="breadcrumb-img-1" data-aos="fade-right" data-aos-delay="200">
-            <img src="assets/images/banner/breadcrumb-1.png" alt="">
-        </div>
-        <div class="breadcrumb-img-2" data-aos="fade-left" data-aos-delay="200">
-            <img src="assets/images/banner/breadcrumb-2.png" alt="">
         </div>
     </div>
     <div class="product-details-area pb-100 pt-100">
@@ -287,11 +262,11 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="product-details-content" data-aos="fade-up" data-aos-delay="400">
-                        <h2>New Modern Chair</h2>
+                    <div th:each="el : ${project}" class="product-details-content" data-aos="fade-up" data-aos-delay="400">
+                        <h2 th:text="${el.title}"/>
                         <div class="product-details-price">
-                            <span class="old-price">$25.89 </span>
-                            <span class="new-price">$20.25</span>
+                            <span th:text="'₽' + ${el.price + 50000}" class="old-price"/>
+                            <span th:text="'₽' + ${el.price}" class="new-price"/>
                         </div>
                         <div class="product-details-review">
                             <div class="product-rating">
@@ -353,7 +328,7 @@
             </div>
         </div>
     </div>
-    <div class="description-review-area pb-85">
+    <div th:each="el : ${project}" class="description-review-area pb-85">
         <div class="container">
             <div class="description-review-topbar nav" data-aos="fade-up" data-aos-delay="200">
                 <a class="active" data-bs-toggle="tab" href="#des-details1"> Description </a>
@@ -363,15 +338,7 @@
             <div class="tab-content">
                 <div id="des-details1" class="tab-pane active">
                     <div class="product-description-content text-center">
-                        <p data-aos="fade-up" data-aos-delay="200">Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur. </p>
-                        <p data-aos="fade-up" data-aos-delay="400">Excepteur sint occaecat cupidatat non proident, sunt
-                            in culpa qui officia deserunt mollit anim id est laborum. Sed ut per unde omnis iste natus
-                            error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-                            ab illo</p>
+                        <p th:text="${el.description}" data-aos="fade-up" data-aos-delay="200"/>
                     </div>
                 </div>
                 <div id="des-details2" class="tab-pane">
