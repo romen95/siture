@@ -22,94 +22,8 @@
 </head>
 <body>
 <div class="main-wrapper main-wrapper-2">
-    <header class="header-area header-responsive-padding header-height-1 header-background-color">
-        <div class="header-bottom sticky-bar">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-6 col-6">
-                        <div class="logo">
-                            <a href="/"><img src="" th:src="@{/images/logo/logo-white.png}" alt="logo"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 d-none d-lg-block d-flex justify-content-center">
-                        <div class="main-menu text-center">
-                            <nav>
-                                <ul>
-                                    <li><a href="index.html">Главная</a>
-                                        <ul class="sub-menu-style">
-                                            <li><a href="index.html">О нас</a></li>
-                                            <li><a href="index.html">Преимущества</a></li>
-                                            <li><a href="index.html">Партнеры</a></li>
-                                            <li><a href="index.html">Отзывы</a></li>
-                                            <li><a href="index.html">Наш офис</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="/projects">Проекты</a>
-                                        <ul class="mega-menu-style mega-menu-mrg-1">
-                                            <li>
-                                                <ul>
-                                                    <li>
-                                                        <a class="dropdown-title" href="index.html">Для дома</a>
-                                                        <ul>
-                                                            <li><a href="index.html">Кухни</a></li>
-                                                            <li><a href="index.html">Шкафы</a></li>
-                                                            <li><a href="index.html">Гардеробные</a></li>
-                                                            <li><a href="index.html">Стеновые панели</a></li>
-                                                            <li><a href="index.html">Консоли</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-title" href="index.html">Для бизнеса</a>
-                                                        <ul>
-                                                            <li><a href="index.html">Раздевалки</a></li>
-                                                            <li><a href="index.html">Торговые стеллажи</a></li>
-                                                            <li><a href="index.html">Офисная мебель</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a href="index.html"><img src="assets/images/banner/menu.png"
-                                                                                  alt=""></a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="index.html">Дизайнерам</a>
-                                        <ul class="sub-menu-style">
-                                            <li><a href="index.html">Сотрудничество</a></li>
-                                            <li><a href="index.html">Реализация проектов</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="index.html">Блог</a>
-                                    </li>
-                                    <li><a href="index.html">Контакты</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-6">
-                        <div class="header-action-wrap">
-                            <div th:if="${user.phoneNumber != null}" class="header-action-style">
-                                <a class="text-white" href="/my_account" th:text="${user.name}"/>
-                                    <form action="/logout" method="post">
-                                        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
-                                        <input type="submit" value="Выйти">
-                                    </form>
-                            </div>
-                            <div th:unless="${user.phoneNumber != null}" class="header-action-style">
-                                <form action="/login" method="get">
-                                    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
-                                    <input type="submit" value="Войти">
-                                </form>
-                            </div>
-                            <div class="header-action-style d-block d-lg-none">
-                                <a class="mobile-menu-active-button text-white" href="#"><i class="pe-7s-menu"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <header th:insert="header :: header"
+            class="header-area header-responsive-padding header-height-1 header-background-color">
     </header>
     <!-- mini cart start -->
     <div class="sidebar-cart-active">
@@ -210,6 +124,83 @@
                 </div>
                 <div class="home-slider-prev main-slider-nav"><i class="fa fa-angle-left"></i></div>
                 <div class="home-slider-next main-slider-nav"><i class="fa fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-area pt-100 pb-75 padding-20-row-col">
+        <div class="container">
+            <div class="section-title-2 border-none text-center mb-25 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <h2>Наши проекты</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 order-md-1 order-sm-1 col-12">
+                    <div class="banner-wrap mb-20 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                        <a href="product-details.html"><img src="" th:src="@{/images/projects/wardboards.jpg}" alt=""></a>
+                        <div class="banner-content-9">
+                            <h3>Шкафы</h3>
+                            <h4>Рациональное хранение</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 order-md-0 order-sm-0 col-12">
+                    <div class="banner-wrap mb-20 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                        <a href="product-details.html"><img src="" th:src="@{/images/projects/kitchens.jpg}" alt=""></a>
+                        <div class="banner-content-9">
+                            <h3>Кухни</h3>
+                            <h4>Любые конфигурации</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 order-md-2 order-sm-2 col-12">
+                    <div class="banner-wrap mb-20 aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                        <a href="product-details.html"><img src="" th:src="@{/images/projects/dressingrooms.jpg}" alt=""></a>
+                        <div class="banner-content-9">
+                            <h3>Гардеробные</h3>
+                            <h4>Открытые и закрытые</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 order-md-3 order-sm-3 col-12">
+                    <div class="banner-wrap mb-20 aos-init aos-animate" data-aos="fade-up" data-aos-delay="800">
+                        <a href="product-details.html"><img src="" th:src="@{/images/projects/wallpanels.jpg}" alt=""></a>
+                        <div class="banner-content-9">
+                            <h3>Стеновые панели</h3>
+                            <h4>Натуральные материалы</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 order-md-4 order-sm-4 col-12">
+                    <div class="banner-wrap mb-20 aos-init aos-animate" data-aos="fade-up" data-aos-delay="1000">
+                        <a href="product-details.html"><img src="" th:src="@{/images/projects/consoles.jpg}" alt=""></a>
+                        <div class="banner-content-9">
+                            <h3>Консоли</h3>
+                            <h4>Подвесные и на опорах</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about-us-area pt-100 pb-100">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-lg-6">
+                    <div class="about-content text-center">
+                        <h2 data-aos="fade-up" data-aos-delay="300" class="aos-init aos-animate">Siture</h2>
+                        <p data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">Наша команда занимается производством корпусной и встроенной мебели любой сложности.</p>
+                        <p class="mrg-inc aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">Мы подбираем наполнение и материалы отделки таким образом, чтобы результат соответствовал вашим желаниям.</p>
+                        <div class="btn-style-3 btn-hover aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                            <a class="btn border-radius-none" href="/">Рассчитать стоимость мебели</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <video preload="auto" class="video_source_block about-img aos-init aos-animate" data-aos="fade-up"
+                           data-aos-delay="400" playsinline="" autoplay="" loop="" muted="">
+                        <!--Укажите здесь свою ссылку на видеофайл-->
+                        <source src="https://drive.google.com/uc?export=download&amp;id=15xVcLFGn86M-8rxnxEiEuM07DKSkol1I">
+                    </video>
+                </div>
             </div>
         </div>
     </div>
