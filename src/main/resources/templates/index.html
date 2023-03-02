@@ -22,6 +22,8 @@
 </head>
 <body>
 <div class="main-wrapper main-wrapper-2">
+    <div class="body-overlay-2"></div>
+    <div class="body-overlay"></div>
     <header th:insert="header :: header"
             class="header-area header-responsive-padding header-height-1 header-background-color">
     </header>
@@ -69,6 +71,7 @@
             </div>
         </div>
     </div>
+    <div>
     <div class="slider-area">
         <div class="slider-active swiper-container">
             <div class="swiper-wrapper">
@@ -127,23 +130,25 @@
             </div>
         </div>
     </div>
+    </div>
     <div class="banner-area pt-100 pb-75 padding-20-row-col">
         <div class="container">
-            <div class="section-title-2 border-none text-center mb-25 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-                <h2>Наши проекты</h2>
+            <div class="section-title-2 border-none text-center mb-30" data-aos="fade-up" data-aos-delay="200">
+                <h2>Проекты</h2>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 order-md-1 order-sm-1 col-12">
-                    <div class="banner-wrap mb-20 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                    <div class="banner-wrap mb-20" data-aos="fade-up" data-aos-delay="400">
                         <a href="product-details.html"><img src="" th:src="@{/images/projects/wardboards.jpg}" alt=""></a>
                         <div class="banner-content-9">
                             <h3>Шкафы</h3>
                             <h4>Рациональное хранение</h4>
                         </div>
+                        <div class="background_opacity"></div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 order-md-0 order-sm-0 col-12">
-                    <div class="banner-wrap mb-20 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                    <div class="banner-wrap mb-20" data-aos="fade-up" data-aos-delay="200">
                         <a href="product-details.html"><img src="" th:src="@{/images/projects/kitchens.jpg}" alt=""></a>
                         <div class="banner-content-9">
                             <h3>Кухни</h3>
@@ -152,7 +157,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 order-md-2 order-sm-2 col-12">
-                    <div class="banner-wrap mb-20 aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                    <div class="banner-wrap mb-20" data-aos="fade-up" data-aos-delay="600">
                         <a href="product-details.html"><img src="" th:src="@{/images/projects/dressingrooms.jpg}" alt=""></a>
                         <div class="banner-content-9">
                             <h3>Гардеробные</h3>
@@ -161,7 +166,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 order-md-3 order-sm-3 col-12">
-                    <div class="banner-wrap mb-20 aos-init aos-animate" data-aos="fade-up" data-aos-delay="800">
+                    <div class="banner-wrap mb-20" data-aos="fade-up" data-aos-delay="800">
                         <a href="product-details.html"><img src="" th:src="@{/images/projects/wallpanels.jpg}" alt=""></a>
                         <div class="banner-content-9">
                             <h3>Стеновые панели</h3>
@@ -170,7 +175,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 order-md-4 order-sm-4 col-12">
-                    <div class="banner-wrap mb-20 aos-init aos-animate" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="banner-wrap mb-20" data-aos="fade-up" data-aos-delay="1000">
                         <a href="product-details.html"><img src="" th:src="@{/images/projects/consoles.jpg}" alt=""></a>
                         <div class="banner-content-9">
                             <h3>Консоли</h3>
@@ -183,6 +188,9 @@
     </div>
     <div class="about-us-area pt-100 pb-100">
         <div class="container">
+            <div class="section-title-2 border-none text-center mb-30" data-aos="fade-up" data-aos-delay="200">
+                <h2>Чем мы занимаемся</h2>
+            </div>
             <div class="row align-items-center flex-row-reverse">
                 <div class="col-lg-6">
                     <div class="about-content text-center">

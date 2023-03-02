@@ -24,4 +24,9 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/index_5")
+    public String index5(Model model) {
+        return "index-5";
+    }
+
 }
