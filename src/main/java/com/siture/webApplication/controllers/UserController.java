@@ -25,7 +25,8 @@ public class UserController {
     }
 
     @GetMapping("/registration")
-    public String registration() {
+    public String registration(User user, Model model) {
+        model.addAttribute("user", user);
         return "registration";
     }
 

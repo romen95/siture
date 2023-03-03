@@ -43,7 +43,8 @@ public class ProjectsController {
     }
 
     @GetMapping("/projects/{id}")
-    public String projectsDetails(@PathVariable(value = "id") long id, Model model) {
+    public String projectsDetails(@PathVariable(value = "id") long id, User user, Model model) {
+        model.addAttribute("user", user);
         if (!projectService.existsById(id)) {
             return "redirect:/projects";
         }

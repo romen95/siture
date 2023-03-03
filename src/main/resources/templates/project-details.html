@@ -22,7 +22,94 @@
 </head>
 <body>
 <div class="main-wrapper main-wrapper-2">
-    <header th:insert="header :: header" class="header-area header-responsive-padding header-height-1 header-background-color">
+    <header class="header-area header-responsive-padding header-height-1 header-background-color">
+        <div class="header-bottom sticky-bar">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="logo">
+                            <a href="/"><img src="" th:src="@{/images/logo/logo-white.png}" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block d-flex justify-content-center">
+                        <div class="main-menu text-center">
+                            <nav>
+                                <ul>
+                                    <li><a href="/">Главная</a>
+                                        <ul class="sub-menu-style">
+                                            <li><a href="/">О нас</a></li>
+                                            <li><a href="/">Преимущества</a></li>
+                                            <li><a href="/">Партнеры</a></li>
+                                            <li><a href="/">Отзывы</a></li>
+                                            <li><a href="/">Наш офис</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/projects">Проекты</a>
+                                        <ul class="mega-menu-style mega-menu-mrg-1">
+                                            <li>
+                                                <ul>
+                                                    <li>
+                                                        <a class="dropdown-title" href="/">Для дома</a>
+                                                        <ul>
+                                                            <li><a href="/">Кухни</a></li>
+                                                            <li><a href="/">Шкафы</a></li>
+                                                            <li><a href="/">Гардеробные</a></li>
+                                                            <li><a href="/">Стеновые панели</a></li>
+                                                            <li><a href="/">Консоли</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-title" href="/">Для бизнеса</a>
+                                                        <ul>
+                                                            <li><a href="/">Раздевалки</a></li>
+                                                            <li><a href="/">Торговые стеллажи</a></li>
+                                                            <li><a href="/">Офисная мебель</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/"><img src="assets/images/banner/menu.png"
+                                                                         alt=""></a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/">Дизайнерам</a>
+                                        <ul class="sub-menu-style">
+                                            <li><a href="/">Сотрудничество</a></li>
+                                            <li><a href="/">Реализация проектов</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/">Блог</a>
+                                    </li>
+                                    <li><a href="/">Контакты</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="header-action-wrap">
+                            <div th:if="${user.phoneNumber != null}" class="header-action-style">
+                                <a class="text-white" href="/my_account" th:text="${user.name}"/>
+                                <form action="/logout" method="post">
+                                    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                                    <input type="submit" value="Выйти">
+                                </form>
+                            </div>
+                            <div th:unless="${user.phoneNumber != null}" class="header-action-style">
+                                <form action="/login" method="get">
+                                    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                                    <input type="submit" value="Войти">
+                                </form>
+                            </div>
+                            <div class="header-action-style d-block d-lg-none">
+                                <a class="mobile-menu-active-button text-white" href="#"><i class="pe-7s-menu"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <!-- mini cart start -->
     <div class="sidebar-cart-active">

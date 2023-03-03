@@ -24,8 +24,94 @@
 <div class="main-wrapper main-wrapper-2">
     <div class="body-overlay-2"></div>
     <div class="body-overlay"></div>
-    <header th:insert="header :: header"
-            class="header-area header-responsive-padding header-height-1 header-background-color">
+    <header class="header-area header-responsive-padding header-height-1 header-background-color">
+        <div class="header-bottom sticky-bar">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="logo">
+                            <a href="/"><img src="" th:src="@{/images/logo/logo-white.png}" alt="logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block d-flex justify-content-center">
+                        <div class="main-menu text-center">
+                            <nav>
+                                <ul>
+                                    <li><a href="/">Главная</a>
+                                        <ul class="sub-menu-style">
+                                            <li><a href="/">О нас</a></li>
+                                            <li><a href="/">Преимущества</a></li>
+                                            <li><a href="/">Партнеры</a></li>
+                                            <li><a href="/">Отзывы</a></li>
+                                            <li><a href="/">Наш офис</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/projects">Проекты</a>
+                                        <ul class="mega-menu-style mega-menu-mrg-1">
+                                            <li>
+                                                <ul>
+                                                    <li>
+                                                        <a class="dropdown-title" href="/">Для дома</a>
+                                                        <ul>
+                                                            <li><a href="/">Кухни</a></li>
+                                                            <li><a href="/">Шкафы</a></li>
+                                                            <li><a href="/">Гардеробные</a></li>
+                                                            <li><a href="/">Стеновые панели</a></li>
+                                                            <li><a href="/">Консоли</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-title" href="/">Для бизнеса</a>
+                                                        <ul>
+                                                            <li><a href="/">Раздевалки</a></li>
+                                                            <li><a href="/">Торговые стеллажи</a></li>
+                                                            <li><a href="/">Офисная мебель</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/"><img src="assets/images/banner/menu.png"
+                                                                         alt=""></a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/">Дизайнерам</a>
+                                        <ul class="sub-menu-style">
+                                            <li><a href="/">Сотрудничество</a></li>
+                                            <li><a href="/">Реализация проектов</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/">Блог</a>
+                                    </li>
+                                    <li><a href="/">Контакты</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="header-action-wrap">
+                            <div th:if="${user.phoneNumber != null}" class="header-action-style">
+                                <a class="text-white" href="/my_account" th:text="${user.name}"/>
+                                <form action="/logout" method="post">
+                                    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                                    <input type="submit" value="Выйти">
+                                </form>
+                            </div>
+                            <div th:unless="${user.phoneNumber != null}" class="header-action-style">
+                                <form action="/login" method="get">
+                                    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+                                    <input type="submit" value="Войти">
+                                </form>
+                            </div>
+                            <div class="header-action-style d-block d-lg-none">
+                                <a class="mobile-menu-active-button text-white" href="#"><i class="pe-7s-menu"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <!-- mini cart start -->
     <div class="sidebar-cart-active">
@@ -72,64 +158,64 @@
         </div>
     </div>
     <div>
-    <div class="slider-area">
-        <div class="slider-active swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1"
-                         style="" th:style="'background-image:url(' + @{/images/slider/slider-bg-1.jpg} + ')'">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div>
-                                    <div class="slider-content-1 slider-animated-1">
-                                        <h3 class="text-white animated">Стиль, качество, комфорт</h3>
-                                        <h1 class="text-white animated">Дизайнерская мебель на заказ</h1>
-                                        <div class="slider-btn btn-hover">
-                                            <a href="product-details.html" class="btn animated">
-                                                Заказать мебель<i class=" ti-arrow-right "></i>
-                                            </a>
+        <div class="slider-area">
+            <div class="slider-active swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1"
+                             style="" th:style="'background-image:url(' + @{/images/slider/slider-bg-1.jpg} + ')'">
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div>
+                                        <div class="slider-content-1 slider-animated-1">
+                                            <h3 class="text-white animated">Стиль, качество, комфорт</h3>
+                                            <h1 class="text-white animated">Дизайнерская мебель на заказ</h1>
+                                            <div class="slider-btn btn-hover">
+                                                <a href="product-details.html" class="btn animated">
+                                                    Заказать мебель<i class=" ti-arrow-right "></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
+                                    <!--                                <div class="col-lg-6 col-md-6">-->
+                                    <!--                                    <div class="hero-slider-img-1 slider-animated-1">-->
+                                    <!--                                        <img class="animated animated-slider-img-1" src="assets/images/slider/slider-img-1.png" alt="">-->
+                                    <!--                                    </div>-->
+                                    <!--                                </div>-->
                                 </div>
-                                <!--                                <div class="col-lg-6 col-md-6">-->
-                                <!--                                    <div class="hero-slider-img-1 slider-animated-1">-->
-                                <!--                                        <img class="animated animated-slider-img-1" src="assets/images/slider/slider-img-1.png" alt="">-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1"
-                         style="" th:style="'background-image:url(' + @{/images/slider/slider-bg-2.jpg} + ')'">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div>
-                                    <div class="slider-content-1 slider-animated-1">
-                                        <h3 class="text-white animated">Ваша идея, наше исполнение</h3>
-                                        <h1 class="text-white animated">Изготовим мебель по дизайн-проекту</h1>
-                                        <div class="slider-btn btn-hover">
-                                            <a href="product-details.html" class="btn animated">
-                                                Заказать мебель<i class=" ti-arrow-right "></i>
-                                            </a>
+                    <div class="swiper-slide">
+                        <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1"
+                             style="" th:style="'background-image:url(' + @{/images/slider/slider-bg-2.jpg} + ')'">
+                            <div class="container">
+                                <div class="row align-items-center">
+                                    <div>
+                                        <div class="slider-content-1 slider-animated-1">
+                                            <h3 class="text-white animated">Ваша идея, наше исполнение</h3>
+                                            <h1 class="text-white animated">Изготовим мебель по дизайн-проекту</h1>
+                                            <div class="slider-btn btn-hover">
+                                                <a href="product-details.html" class="btn animated">
+                                                    Заказать мебель<i class=" ti-arrow-right "></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
+                                    <!--                                <div class="col-lg-6 col-md-6">-->
+                                    <!--                                    <div class="hero-slider-img-1 slider-animated-1">-->
+                                    <!--                                        <img class="animated animated-slider-img-1" src="assets/images/slider/slider-img-1.png" alt="">-->
+                                    <!--                                    </div>-->
+                                    <!--                                </div>-->
                                 </div>
-                                <!--                                <div class="col-lg-6 col-md-6">-->
-                                <!--                                    <div class="hero-slider-img-1 slider-animated-1">-->
-                                <!--                                        <img class="animated animated-slider-img-1" src="assets/images/slider/slider-img-1.png" alt="">-->
-                                <!--                                    </div>-->
-                                <!--                                </div>-->
                             </div>
                         </div>
                     </div>
+                    <div class="home-slider-prev main-slider-nav"><i class="fa fa-angle-left"></i></div>
+                    <div class="home-slider-next main-slider-nav"><i class="fa fa-angle-right"></i></div>
                 </div>
-                <div class="home-slider-prev main-slider-nav"><i class="fa fa-angle-left"></i></div>
-                <div class="home-slider-next main-slider-nav"><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
-    </div>
     </div>
     <div class="banner-area pt-100 pb-75 padding-20-row-col">
         <div class="container">
@@ -139,7 +225,8 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 order-md-1 order-sm-1 col-12">
                     <div class="banner-wrap mb-20" data-aos="fade-up" data-aos-delay="400">
-                        <a href="product-details.html"><img src="" th:src="@{/images/projects/wardboards.jpg}" alt=""></a>
+                        <a href="product-details.html"><img src="" th:src="@{/images/projects/wardboards.jpg}"
+                                                            alt=""></a>
                         <div class="banner-content-9">
                             <h3>Шкафы</h3>
                             <h4>Рациональное хранение</h4>
@@ -158,7 +245,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 order-md-2 order-sm-2 col-12">
                     <div class="banner-wrap mb-20" data-aos="fade-up" data-aos-delay="600">
-                        <a href="product-details.html"><img src="" th:src="@{/images/projects/dressingrooms.jpg}" alt=""></a>
+                        <a href="product-details.html"><img src="" th:src="@{/images/projects/dressingrooms.jpg}"
+                                                            alt=""></a>
                         <div class="banner-content-9">
                             <h3>Гардеробные</h3>
                             <h4>Открытые и закрытые</h4>
@@ -167,7 +255,8 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 order-md-3 order-sm-3 col-12">
                     <div class="banner-wrap mb-20" data-aos="fade-up" data-aos-delay="800">
-                        <a href="product-details.html"><img src="" th:src="@{/images/projects/wallpanels.jpg}" alt=""></a>
+                        <a href="product-details.html"><img src="" th:src="@{/images/projects/wallpanels.jpg}"
+                                                            alt=""></a>
                         <div class="banner-content-9">
                             <h3>Стеновые панели</h3>
                             <h4>Натуральные материалы</h4>
@@ -195,8 +284,11 @@
                 <div class="col-lg-6">
                     <div class="about-content text-center">
                         <h2 data-aos="fade-up" data-aos-delay="300" class="aos-init aos-animate">Siture</h2>
-                        <p data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">Наша команда занимается производством корпусной и встроенной мебели любой сложности.</p>
-                        <p class="mrg-inc aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">Мы подбираем наполнение и материалы отделки таким образом, чтобы результат соответствовал вашим желаниям.</p>
+                        <p data-aos="fade-up" data-aos-delay="400" class="aos-init aos-animate">Наша команда занимается
+                            производством корпусной и встроенной мебели любой сложности.</p>
+                        <p class="mrg-inc aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">Мы подбираем
+                            наполнение и материалы отделки таким образом, чтобы результат соответствовал вашим
+                            желаниям.</p>
                         <div class="btn-style-3 btn-hover aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
                             <a class="btn border-radius-none" href="/">Рассчитать стоимость мебели</a>
                         </div>
@@ -212,6 +304,153 @@
             </div>
         </div>
     </div>
+    <section id="services-3" class="services-3 bg-lightgrey wide-60 services-section division">
+        <div class="container">
+
+
+            <!-- SECTION TITLE -->
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="section-title mb-60 text-center">
+
+                        <!-- Title 	-->
+                        <h3 class="h3-md">Core Features That Matters</h3>
+
+                        <!-- Text -->
+                        <p class="p-lg">Aliquam a augue suscipit, luctus neque purus ipsum neque undo dolor primis libero
+                            tempus, blandit a cursus varius at magna tempor
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- SERVICES-3 WRAPPER -->
+            <div class="sbox-3-wrapper">
+                <div class="row">
+
+
+                    <!-- SERVICE BOX #1 -->
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="sbox-3 wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+
+                            <!-- Icon -->
+                            <div class="sbox-3-ico ico-60 steelgrey-color"><span class="flaticon-browser-8"></span></div>
+
+                            <!-- Text -->
+                            <div class="sbox-3-txt">
+                                <h6 class="h6-lg">Web Development</h6>
+                                <p class="grey-color">Ligula risus auctor tempus a dolor feugiat lacinia at purus ipsum primis
+                                    suscipit aliquet and porta rutrum
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- SERVICE BOX #2 -->
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="sbox-3 wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+
+                            <!-- Icon -->
+                            <div class="sbox-3-ico ico-60 steelgrey-color"><span class="flaticon-image"></span></div>
+
+                            <!-- Text -->
+                            <div class="sbox-3-txt">
+                                <h6 class="h6-lg">Image Building</h6>
+                                <p class="grey-color">Ligula risus auctor tempus a dolor feugiat lacinia at purus ipsum primis
+                                    suscipit aliquet and porta rutrum
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- SERVICE BOX #3 -->
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="sbox-3 wow fadeInUp" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+
+                            <!-- Icon -->
+                            <div class="sbox-3-ico ico-60 steelgrey-color"><span class="flaticon-chart"></span></div>
+
+                            <!-- Text -->
+                            <div class="sbox-3-txt">
+                                <h6 class="h6-lg">Digital Marketing</h6>
+                                <p class="grey-color">Ligula risus auctor tempus a dolor feugiat lacinia at purus ipsum primis
+                                    suscipit aliquet and porta rutrum
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- SERVICE BOX #4 -->
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="sbox-3 wow fadeInUp" data-wow-delay="1s" style="visibility: visible; animation-delay: 1s; animation-name: fadeInUp;">
+
+                            <!-- Icon -->
+                            <div class="sbox-3-ico ico-60 steelgrey-color"><span class="flaticon-pyramid"></span></div>
+
+                            <!-- Text -->
+                            <div class="sbox-3-txt">
+                                <h6 class="h6-lg">Brand Design Identity</h6>
+                                <p class="grey-color">Ligula risus auctor tempus a dolor feugiat lacinia at purus ipsum primis
+                                    suscipit aliquet and porta rutrum
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- SERVICE BOX #5 -->
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="sbox-3 wow fadeInUp" data-wow-delay="1.2s" style="visibility: visible; animation-delay: 1.2s; animation-name: fadeInUp;">
+
+                            <!-- Icon -->
+                            <div class="sbox-3-ico ico-60 steelgrey-color"><span class="flaticon-bar-chart"></span></div>
+
+                            <!-- Text -->
+                            <div class="sbox-3-txt">
+                                <h6 class="h6-lg">SEO &amp; SMM Services</h6>
+                                <p class="grey-color">Ligula risus auctor tempus a dolor feugiat lacinia at purus ipsum primis
+                                    suscipit aliquet and porta rutrum
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- SERVICE BOX #6 -->
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="sbox-3 wow fadeInUp" data-wow-delay="1.4s" style="visibility: visible; animation-delay: 1.4s; animation-name: fadeInUp;">
+
+                            <!-- Icon -->
+                            <div class="sbox-3-ico ico-60 steelgrey-color"><span class="flaticon-archery"></span></div>
+
+                            <!-- Text -->
+                            <div class="sbox-3-txt">
+                                <h6 class="h6-lg">Contextual Advertising</h6>
+                                <p class="grey-color">Ligula risus auctor tempus a dolor feugiat lacinia at purus ipsum primis
+                                    suscipit aliquet and porta rutrum
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>	 <!-- End row -->
+            </div>	 <!-- END SERVICES-3 WRAPPER -->
+
+
+        </div>	   <!-- End container -->
+    </section>
     <footer class="footer-area">
         <div class="bg-gray-2">
             <div class="container">
@@ -268,14 +507,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="bg-gray-3">
-            <div class="container">
-                <div class="footer-bottom copyright text-center bg-gray-3">
-                    <p>Copyright ©2021 All rights reserved | Made with <i class="fa fa-heart"></i> by <a
-                            href="https://hasthemes.com/"> HasThemes</a>.</p>
                 </div>
             </div>
         </div>
